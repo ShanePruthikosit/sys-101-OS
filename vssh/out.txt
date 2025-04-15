@@ -1,0 +1,6 @@
+Cargo.lock
+Cargo.toml
+ls
+out.txt
+src
+target
