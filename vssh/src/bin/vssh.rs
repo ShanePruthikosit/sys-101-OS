@@ -2,14 +2,11 @@ use std::io::{self, Write};
 use std::ffi::{CString, CStr};
 use std::env;
 use std::path::Path;
-// use std::fs::{File, OpenOptions};
-// use std::os::unix::io::{AsRawFd, FromRawFd};
 use nix::unistd::{fork, ForkResult, execvp, dup2};
 use nix::sys::wait::waitpid;
 use nix::sys::wait::WaitStatus;
 use nix::fcntl::{OFlag, open};
 use nix::sys::stat::Mode;
-// use nix::errno::Errno;
 
 fn main() -> io::Result<()> {
     loop {
@@ -44,7 +41,7 @@ fn main() -> io::Result<()> {
         let input = input.trim();
 
         // Check for exit command
-        if input == "exit" || input.is_empty() {
+        if input == "exit" {
             break;
         }
 
