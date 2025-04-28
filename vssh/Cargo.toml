@@ -5,3 +5,6 @@ edition = "2024"
 
 [dependencies]
 nix = "0.26.0"
+ctrlc = "3.4"
+shell-words = "1.1"
+dirs = "5.0"
