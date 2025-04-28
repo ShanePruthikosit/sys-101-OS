@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use std::env;
 use std::fs::{File, OpenOptions};
-use std::io::{self, BufRead, BufReader, Write};
+use std::io::{self, Write};
 use std::path::{Path, PathBuf};
-use std::process::{Child, Command, Stdio};
+use std::process::{ Command, Stdio};
 
 use nix::sys::wait::{waitpid, WaitPidFlag, WaitStatus};
 
@@ -142,7 +142,7 @@ impl Shell {
     }
 
     fn parse_redirections(&self, command: &str) -> (String, Option<String>, Option<String>) {
-        let mut parts = shell_words::split(command).unwrap_or_default();
+        let parts = shell_words::split(command).unwrap_or_default();
         let mut stdin = None;
         let mut stdout = None;
         let mut cmd_parts = Vec::new();
